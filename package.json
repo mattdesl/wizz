@@ -1,6 +1,6 @@
 {
   "name": "wizz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a browserify dev server",
   "main": "index.js",
   "license": "MIT",
