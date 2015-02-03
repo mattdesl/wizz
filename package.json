@@ -20,7 +20,7 @@
     "open": "0.0.5",
     "portfinder": "^0.3.0",
     "tiny-lr": "^0.1.5",
-    "wzrd": "^1.2.1",
+    "wzrd": "git://github.com/mattdesl/wzrd#feature-index",
     "xtend": "^4.0.0"
   },
   "devDependencies": {},

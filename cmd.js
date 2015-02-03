@@ -70,14 +70,14 @@ wizz(argv, function(err, result) {
         argv.live = typeof argv.live === 'number' ? argv.live : 35729
 
         var server = tinylr()
-        server.listen(argv.live, 'localhost', function() {
+        server.listen(argv.live, 'localhost', function(a) {
             console.log('livereload running on port %s', argv.live);
         })
 
         var watch = (argv.watch || argv.w) 
         if (!watch) 
             watch = ['**/*.{js,html,css}', '!node_modules/**']
-        
+
         gaze(watch, function(err, watcher) {
             this.on('changed', function(filepath) {
                 try {
