@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "gaze": "^0.6.4",
+    "minimatch": "^2.0.1",
     "minimist": "^1.1.0",
     "ndjson": "^1.3.0",
     "open": "0.0.5",

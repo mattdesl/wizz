@@ -18,7 +18,9 @@ var argv = minimist(args)
 
 //support custom cwd and index.html file
 argv.path = argv.path || argv.p || process.cwd()
-argv.index = path.join(argv.path, argv.index || argv.i || 'index.html')
+argv.index = (argv.index || argv.i)
+if (argv.index)
+    argv.index = path.join(argv.path, argv.index)
 
 argv.entries = argv._.map(function(arg) {
     if (arg.indexOf(':') === -1) 
@@ -72,7 +74,10 @@ wizz(argv, function(err, result) {
             console.log('livereload running on port %s', argv.live);
         })
 
-        var watch = (argv.watch || argv.w) || '**/*.{js,html,css}'
+        var watch = (argv.watch || argv.w) 
+        if (!watch) 
+            watch = ['**/*.{js,html,css}', '!node_modules/**']
+        
         gaze(watch, function(err, watcher) {
             this.on('changed', function(filepath) {
                 try {
