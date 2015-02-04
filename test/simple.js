@@ -1,1 +1,1 @@
-console.log("This is a test running from browserify.")
+console.log("This is a test running from browserify")

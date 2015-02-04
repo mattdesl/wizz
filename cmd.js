@@ -3,8 +3,6 @@ var path = require('path')
 var wizz = require('./')
 var wzrd = require('wzrd')
 var minimist = require('minimist')
-var tinylr = require('tiny-lr')
-var gaze = require('gaze')
 
 var args = process.argv.slice(2)
 var browserifyArgs
@@ -17,7 +15,9 @@ if (subIdx > -1) {
 var argv = minimist(args)
 
 //support custom cwd and index.html file
-argv.path = argv.path || argv.p || process.cwd()
+//wzrd will take it as a 'path' option
+argv.path = argv.dir || argv.d || process.cwd()
+argv.port = argv.port || argv.p || 9966
 
 argv.entries = argv._.map(function(arg) {
     if (arg.indexOf(':') === -1) 
@@ -30,7 +30,7 @@ argv.entries = argv._.map(function(arg) {
 })
 
 if (!argv.entries.length) {
-  console.error('Usage: wzrd [filename]')
+  console.error('Usage: wizz [filename]')
   process.exit(1)
 }
 
@@ -38,36 +38,11 @@ wizz(argv, function(err, result) {
     if (err) throw err
 
     var uri = ['http://localhost:', result.port, '/'].join('')
-    if (argv.o || argv.open) {
+    if (argv.o || argv.open) 
         require('open')(uri)
-    }
-
-    //fix up console logs.. 
-    console.log(JSON.stringify('server running at '+uri))
-    
-    //really basic live-reload support
-    argv.live = argv.live || argv.l
-    if (argv.live) {
-        //default lr port
-        argv.live = typeof argv.live === 'number' ? argv.live : 35729
-
-        var server = tinylr()
-        server.listen(argv.live, 'localhost', function(a) {
-            console.log(JSON.stringify('livereload running on '+argv.live))
-        })
-
-        var watch = (argv.watch || argv.w) 
-        if (!watch) 
-            watch = ['**/*.{js,html,css}', '!node_modules/**']
-
-        gaze(watch, function(err, watcher) {
-            this.on('changed', function(filepath) {
-                try {
-                    server.changed({ body: { files: [ filepath ] } });
-                } catch (e) {
-                    console.error(e)
-                }
-            })
-        })
-    }
+    console.log(JSON.stringify({ 
+        time: new Date(),
+        level: 'info', 
+        message: 'server running at '+uri 
+    }))
 })

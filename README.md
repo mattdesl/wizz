@@ -5,16 +5,12 @@
 An extension on top of [wzrd](https://www.npmjs.com/package/wzrd). Provides a bit of sugar, like:
 
 - auto port finding
-- fancier logging
 - `--open` the URL in a browser
-- `--path` for current working directory
-- `--live` for *basic* file watching / live-reload support
+- `--dir` for current working directory
 
 ## Usage
 
 [![NPM](https://nodei.co/npm/wizz.png)](https://www.npmjs.com/package/wizz)
-
-## 
 
 ## api
 
