@@ -20,12 +20,14 @@
     "open": "0.0.5",
     "portfinder": "^0.3.0",
     "tiny-lr": "^0.1.5",
-    "wzrd": "git://github.com/mattdesl/wzrd#feature-index",
+    "wzrd": "file:../../var/folders/62/dd4lcd913ls9bb6w8q7k2knr0000gn/T/npm-2142-8b3b036b/git-cache-81c873dd894a/a17035eca90ab766fd2cb2fbea1a1f09e77758f5",
     "xtend": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "garnish": "^1.0.0"
+  },
   "scripts": {
-    "test": "node test.js"
+    "test": "./cmd.js test/simple.js -l | garnish"
   },
   "keywords": [
     "wzrd",
