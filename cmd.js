@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var path = require('path')
 var wizz = require('./')
-var wzrd = require('wzrd')
 var minimist = require('minimist')
 
 var args = process.argv.slice(2)

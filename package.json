@@ -24,7 +24,7 @@
     "wtch": "^1.0.0"
   },
   "scripts": {
-    "test": "./cmd.js simple.js:foo.js -d test | wtch | garnish"
+    "test": "./cmd.js simple.js:foo.js -d test | wtch --verbose --poll | garnish"
   },
   "keywords": [
     "wzrd",
