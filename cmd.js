@@ -9,6 +9,8 @@ var subIdx = args.indexOf('--')
 if (subIdx > -1) {
   browserifyArgs = args.slice(subIdx + 1)
   args = args.slice(0, subIdx)
+} else {
+  // browserifyArgs = "-d"
 }
 
 var argv = minimist(args)

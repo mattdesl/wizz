@@ -2,7 +2,9 @@
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-An extension on top of [wzrd](https://www.npmjs.com/package/wzrd). Provides a bit of sugar, like:
+## experimental
+
+Some experiments. Use [wzrd](https://github.com/maxogden/wzrd), [budo](https://github.com/mattdesl/budo) or [beefy](https://github.com/chrisdickinson/beefy) instead.
 
 - auto port finding
 - `--open` the URL in a browser

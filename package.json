@@ -20,7 +20,9 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "clamp": "^1.0.1",
     "garnish": "^1.0.0",
+    "img": "^1.0.0",
     "wtch": "^1.0.0"
   },
   "scripts": {
